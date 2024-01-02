@@ -5,7 +5,7 @@ export default class Character {
     } else {
       throw new Error('Character type not allowed!');
     }
-    this.attackPower = attack;
+    this.baseAttackPower = attack;
     this.stone = false;
     this.attackDistance = NaN;
   }
@@ -18,15 +18,23 @@ export default class Character {
     return this.stone;
   }
 
-  set attack(param) {
-    this.attackDistance = param;
+  set distance(distance) {
+    this.attackDistance = distance;
+  }
+
+  get distance() {
+    return this.attackDistance;
+  }
+
+  get baseAttack() {
+    return this.baseAttackPower;
   }
 
   get attack() {
     if (Number.isNaN(this.attackDistance)) {
       return NaN;
     }
-    let result = this.attackPower * (1 - (this.attackDistance - 1) / 10);
+    let result = this.baseAttack * (1 - (this.attackDistance - 1) / 10);
     if (this.stoned) {
       result -= Math.log2(this.attackDistance) * 5;
     }

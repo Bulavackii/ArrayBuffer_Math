@@ -1,25 +1,25 @@
-import Daemon from '../daemon';
+import Daemon from '../Daemon';
 
-test('Testing creating deamon', () => {
+test('Testing creating daemon', () => {
   const daemon = new Daemon('name', 100);
-  expect(daemon.attackDistance).toBe(NaN);
+  expect(daemon.distance).toBe(NaN);
 });
 
 test('Testing daemon attack without stoned', () => {
-  const deamon = new Daemon('name', 100);
-  deamon.attack = 2;
-  expect(deamon.attack).toBe(90);
+  const daemon = new Daemon('name', 100);
+  daemon.distance = 2;
+  expect(daemon.attack).toBe(90);
 });
 
 test('Testing daemon attack with stoned', () => {
-  const deamon = new Daemon('name', 100);
-  deamon.attack = 2;
-  deamon.stoned = true;
-  expect(deamon.attack).toBe(85);
+  const daemon = new Daemon('name', 100);
+  daemon.distance = 2;
+  daemon.stoned = true;
+  expect(daemon.attack).toBe(85);
 });
 
-test('Testing deamon attack without distance setup', () => {
-  const deamon = new Daemon('name', 100);
-  deamon.stoned = true;
-  expect(deamon.attack).toBe(NaN);
+test('Testing daemon attack without distance setup', () => {
+  const daemon = new Daemon('name', 100);
+  daemon.stoned = true;
+  expect(daemon.attack).toBe(NaN);
 });

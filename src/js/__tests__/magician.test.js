@@ -1,25 +1,25 @@
-import Magician from '../magician';
+import Magician from '../Magician';
 
 test('Testing creating magician', () => {
-  const daemon = new Magician('name', 100);
-  expect(daemon.attackDistance).toBe(NaN);
+  const magician = new Magician('name', 100);
+  expect(magician.distance).toBe(NaN);
 });
 
 test('Testing magician attack without stoned', () => {
-  const deamon = new Magician('name', 100);
-  deamon.attack = 2;
-  expect(deamon.attack).toBe(90);
+  const magician = new Magician('name', 100);
+  magician.distance = 2;
+  expect(magician.attack).toBe(90);
 });
 
 test('Testing magician attack with stoned', () => {
-  const deamon = new Magician('name', 100);
-  deamon.attack = 2;
-  deamon.stoned = true;
-  expect(deamon.attack).toBe(85);
+  const magician = new Magician('name', 100);
+  magician.distance = 2;
+  magician.stoned = true;
+  expect(magician.attack).toBe(85);
 });
 
 test('Testing magician attack without distance setup', () => {
-  const deamon = new Magician('name', 100);
-  deamon.stoned = true;
-  expect(deamon.attack).toBe(NaN);
+  const magician = new Magician('name', 100);
+  magician.stoned = true;
+  expect(magician.attack).toBe(NaN);
 });
